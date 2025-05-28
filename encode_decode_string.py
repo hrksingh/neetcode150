@@ -2,7 +2,8 @@ from typing import List
 
 
 class Solution:
-    dem = '#'
+    dem = "#"
+
     def encode(self, strs: List[str]) -> str:
         res_str = ""
         for s in strs:
@@ -20,11 +21,12 @@ class Solution:
             fetchLen = int(s[i:j])
             demPos = j
             nextPoint = demPos + fetchLen + 1
-            res.append(s[demPos+1 : nextPoint])
+            res.append(s[demPos + 1 : nextPoint])
             i = nextPoint
         return res
 
-e = Solution().encode(["hello","world#again", "notdem#again"])
+
+e = Solution().encode(["hello", "world#again", "notdem#again"])
 print(e)
 d = Solution().decode(e)
 print(d)
