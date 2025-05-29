@@ -177,3 +177,6 @@ cython_debug/
 
 todo.txt
 .DS_Store
+
+.idea
+.ropeproject
