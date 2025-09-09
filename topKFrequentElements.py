@@ -19,5 +19,6 @@ class Solution:
                 res.append(num)
                 if len(res) == k:
                     return res
+        return res  # Ensure a return value on all code paths
 
 print(Solution().topKFrequent([1,1,1,2,2,3], 2))
