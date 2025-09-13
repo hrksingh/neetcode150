@@ -25,7 +25,7 @@ class OptimalSolution:
             if count == 0:
                 candidate = num
             count += (1 if num == candidate else -1)
-        
+        # (Optional: verify candidate actually appears > n/2)
         return candidate
                 
 print(OptimalSolution().majorityElement([5,5,1,1,1,5,5]))
