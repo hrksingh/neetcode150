@@ -2,7 +2,7 @@ class ListNode:
     def __init__(self, key, value):
         self.key = key
         self.value = value
-        self.next = None
+        self.next: 'ListNode | None'= None
 
 
 class MyHashMap:
