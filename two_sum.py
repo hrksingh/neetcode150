@@ -11,7 +11,7 @@ class Brute:
 
 
 class Optimal:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:  # type: ignore
         prevMap = {}  # val -> index
 
         for index, value in enumerate(nums):

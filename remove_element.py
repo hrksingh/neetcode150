@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         k = 0
