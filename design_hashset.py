@@ -1,15 +1,16 @@
 class ListNode:
     def __init__(self, key: int):
         self.key = key
-        self.next: 'ListNode | None' = None
+        self.next: "ListNode | None" = None
+
     def __repr__(self):
         return f"ListNode(key={self.key},next={self.next})"
 
-class MyHashSet:
 
+class MyHashSet:
     def __init__(self):
         self.set = [ListNode(0) for _ in range(10**4)]
-        
+
     def add(self, key: int) -> None:
         index = key % len(self.set)
         cur = self.set[index]
@@ -18,7 +19,6 @@ class MyHashSet:
                 return
             cur = cur.next
         cur.next = ListNode(key)
-                
 
     def remove(self, key: int) -> None:
         index = key % len(self.set)
@@ -28,7 +28,6 @@ class MyHashSet:
                 cur.next = cur.next.next
                 return
             cur = cur.next
-        
 
     def contains(self, key: int) -> bool:
         index = key % len(self.set)
@@ -38,7 +37,7 @@ class MyHashSet:
                 return True
             cur = cur.next
         return False
-    
+
     def __str__(self):
         result = []
         for bucket in self.set:
@@ -47,10 +46,11 @@ class MyHashSet:
                 result.append(cur.key)
                 cur = cur.next
         return str(result)
-    
-    def printHashSet (self):
+
+    def printHashSet(self):
         print(self.set)
-    
+
+
 h = MyHashSet()
 h.add(7)
 h.add(10007)

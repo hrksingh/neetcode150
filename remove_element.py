@@ -1,4 +1,6 @@
 from typing import List
+
+
 class Solution:
     def removeElement(self, nums: list[int], val: int) -> int:
         k = 0
@@ -7,5 +9,6 @@ class Solution:
                 nums[k] = nums[i]
                 k += 1
         return k
-    
-print(Solution().removeElement([1,1,2,3,4], 1))
+
+
+print(Solution().removeElement([1, 1, 2, 3, 4], 1))

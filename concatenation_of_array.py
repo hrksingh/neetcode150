@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
         ans = []
@@ -7,5 +8,6 @@ class Solution:
             for num in nums:
                 ans.append(num)
         return ans
-        
-print(Solution().getConcatenation([1,2,3]))
+
+
+print(Solution().getConcatenation([1, 2, 3]))
