@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         numSet = set(nums)
@@ -12,5 +13,6 @@ class Solution:
                     length += 1
                 longest = max(length, longest)
         return longest
+
 
 print(Solution().longestConsecutive([2, 20, 4, 10, 3, 4, 5]))
