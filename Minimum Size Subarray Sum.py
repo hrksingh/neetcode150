@@ -19,7 +19,7 @@ class Solution:
                 total -= nums[left]
                 left += 1
 
-        return 0 if best is inf else best
+        return 0 if best is inf else int(best)
 
 
 if __name__ == "__main__":
