@@ -31,9 +31,7 @@ class Solution:
                 left_char = s[l]
                 if left_char in countT:
                     window[left_char] -= 1
-                    if (
-                        window[left_char] < countT[left_char]
-                    ):  # If count drops below required, the window is no longer valid
+                    if (window[left_char] < countT[left_char]):  # If count drops below required, the window is no longer valid
                         have -= 1
                 l += 1
 
