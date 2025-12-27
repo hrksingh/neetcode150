@@ -8,30 +8,30 @@ class Solution:
         while l <= r:
             mid = l + (r - l) // 2
 
-            # Found target
-            if target == nums[mid]:
+            if nums[mid] == target:
                 return True
 
-            # Left half is definitely sorted
-            elif nums[l] < nums[mid]:
-                # Check if target is in sorted left half
+            # Handle the ambiguous case first
+            if nums[l] == nums[mid] == nums[r]:
+                # Can't determine which side is sorted
+                # Skip the duplicate and continue
+                l += 1
+                r -= 1
+                continue
+
+            # Now we can safely determine which half is sorted
+            if nums[l] < nums[mid]:
+                # Left half is sorted
                 if nums[l] <= target < nums[mid]:
-                    r = mid - 1
+                    r = mid - 1  # Target in left sorted half
                 else:
-                    l = mid + 1
-
-            # Right half is definitely sorted
-            elif nums[l] > nums[mid]:
-                # Check if target is in sorted right half
-                if nums[mid] < target <= nums[r]:
-                    l = mid + 1
-                else:
-                    r = mid - 1
-
-            # Ambiguous case: nums[l] == nums[mid]
-            # Cannot determine which half is sorted
+                    l = mid + 1  # Target in right half
             else:
-                l += 1  # Skip one duplicate
+                # Right half is sorted (nums[l] > nums[mid])
+                if nums[mid] < target <= nums[r]:
+                    l = mid + 1  # Target in right sorted half
+                else:
+                    r = mid - 1  # Target in left half
 
         return False
 
