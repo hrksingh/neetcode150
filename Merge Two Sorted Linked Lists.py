@@ -71,7 +71,7 @@ class Solution:
 
 if __name__ == "__main__":
     a = build_linked_list([1, 2, 4])
-    b = build_linked_list([1, 3, 4])
+    b = build_linked_list([1, 3, 5])
     print("List 1 as list : ", a)
     print("List 2 as list : ", b)
     merged = Solution().mergeTwoLists(a, b)
