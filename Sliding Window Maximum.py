@@ -27,3 +27,9 @@ class Solution:
                 l += 1  # Slide the window forward
 
         return res
+
+
+nums = [1, 3, -1, -3, 5]
+k = 3
+
+print(Solution().maxSlidingWindow(nums, k))
