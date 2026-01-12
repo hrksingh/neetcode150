@@ -14,7 +14,7 @@ class Solution:
         balanced = [True]
 
         def height(node):
-            if not root:
+            if not node:
                 return 0
 
             left = height(node.left)
