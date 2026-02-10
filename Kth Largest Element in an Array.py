@@ -13,3 +13,5 @@ class Solution:
                 heapq.heappushpop(min_heap, n)
 
         return min_heap[0]
+
+# TODO: Learn quickselect to make it more optimal
