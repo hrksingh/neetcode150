@@ -1,3 +1,4 @@
+from collections import deque
 from typing import Optional
 
 
@@ -6,6 +7,9 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+    def __repr__(self) -> str:
+        return f"{self.val}"
 
 
 class Solution:
@@ -28,3 +32,46 @@ class Solution:
         if p and q and p.val == q.val:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         return False
+
+
+def build_tree_from_list(values: list) -> Optional[TreeNode]:
+    """Build a binary tree from a list using level-order (BFS) approach."""
+    if not values or values[0] is None:
+        return None
+
+    root = TreeNode(values[0])
+    queue = deque([root])
+    i = 1
+
+    while queue and i < len(values):
+        node = queue.popleft()
+
+        # Add left child
+        if i < len(values) and values[i] is not None:
+            node.left = TreeNode(values[i])
+            queue.append(node.left)
+        i += 1
+
+        # Add right child
+        if i < len(values) and values[i] is not None:
+            node.right = TreeNode(values[i])
+            queue.append(node.right)
+        i += 1
+
+    return root
+
+
+if __name__ == "__main__":
+    solution = Solution()
+
+    # Create trees from lists
+    root = build_tree_from_list([1, 2, 3, 4, 5, None, None, 6])
+    subRoot = build_tree_from_list([2, 4, 5])
+
+    result = solution.isSubtree(root, subRoot)
+    print(f"Is subRoot a subtree of root? {result}")
+
+    root2 = build_tree_from_list([1, 2, 3, 4, 5])
+    subRoot2 = build_tree_from_list([2, 4, 5])
+    result2 = solution.isSubtree(root2, subRoot2)
+    print(f"Is subRoot a subtree of root? {result2}")
