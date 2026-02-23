@@ -33,6 +33,26 @@ class Solution:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         return False
 
+    def isSubtreeMerkle(
+        self, root: Optional[TreeNode], subRoot: Optional[TreeNode]
+    ) -> bool:
+        seen = set()
+        self.merkle(root, seen)
+        sub_hash = self.merkle(subRoot)
+        return sub_hash in seen
+
+    def merkle(self, node, seen=None):
+        if not node:
+            return hash(None)
+
+        left_hash = self.merkle(node.left, seen)
+        right_hash = self.merkle(node.right, seen)
+        subtree_hash = hash((node.val, left_hash, right_hash))
+
+        if seen is not None:
+            seen.add(subtree_hash)
+        return subtree_hash
+
 
 def build_tree_from_list(values: list) -> Optional[TreeNode]:
     """Build a binary tree from a list using level-order (BFS) approach."""
@@ -69,9 +89,11 @@ if __name__ == "__main__":
     subRoot = build_tree_from_list([2, 4, 5])
 
     result = solution.isSubtree(root, subRoot)
+    # resultM = solution.isSubtreeMerkle(root, subRoot)
     print(f"Is subRoot a subtree of root? {result}")
 
     root2 = build_tree_from_list([1, 2, 3, 4, 5])
     subRoot2 = build_tree_from_list([2, 4, 5])
     result2 = solution.isSubtree(root2, subRoot2)
+    resultM = solution.isSubtreeMerkle(root2, subRoot2)
     print(f"Is subRoot a subtree of root? {result2}")
