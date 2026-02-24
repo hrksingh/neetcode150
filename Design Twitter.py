@@ -55,9 +55,8 @@ class Twitter:
         self.followMap[followerId].add(followeeId)
 
     def unfollow(self, followerId: int, followeeId: int) -> None:
-        """followerId stops following followeeId (cannot unfollow themselves)."""
-        if followeeId != followerId and followeeId in self.followMap[followerId]:
-            self.followMap[followerId].remove(followeeId)
+        """followerId stops following followeeId."""
+        self.followMap[followerId].discard(followeeId)
 
 
 if __name__ == "__main__":
