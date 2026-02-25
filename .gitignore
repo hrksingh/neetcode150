@@ -181,3 +181,5 @@ todo.txt
 .idea
 .ropeproject
 .python-version
+__pycache__/
+.venv/
