@@ -14,4 +14,5 @@ class Solution:
 
         return min_heap[0]
 
+
 # TODO: Learn quickselect to make it more optimal
