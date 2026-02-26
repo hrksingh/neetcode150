@@ -11,9 +11,6 @@ class Solution:
         heap, res = [], []
         time, i = 0, 0
         while heap or i < len(tasks):
-            if not heap:
-                time = tasks[i][0]
-
             while i < len(tasks) and time >= tasks[i][0]:
                 heapq.heappush(heap, (tasks[i][1], tasks[i][2]))
                 i += 1
@@ -22,9 +19,12 @@ class Solution:
                 proc_time, curr_idx = heapq.heappop(heap)
                 time += proc_time
                 res.append(curr_idx)
+            else:
+                time = tasks[i][0]
         return res
 
 
 if __name__ == "__main__":
-    tasks = [[1, 4], [3, 3], [2, 1]]
-    print(Solution().getOrder(tasks))
+    # tasks = [[1, 4], [3, 3], [2, 1]]
+    tasks2 = [[1, 2], [2, 4], [3, 2], [4, 1]]
+    print(Solution().getOrder(tasks2))  # output = [0,2,3,1]
