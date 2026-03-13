@@ -23,7 +23,16 @@ class Solution:
         backtrack(0)
         return res
 
+    def subsetsIterative(self, nums: List[int]) -> List[List[int]]:
+        res = [[]]
+        for num in nums:
+            current = res[:]
+            for subset in current:
+                res.append(subset + [num])
+        return res
+
 
 if __name__ == "__main__":
     nums = [1, 3, 5]
-    print(Solution().subsets(nums))
+    # print(Solution().subsets(nums))
+    print(Solution().subsetsIterative(nums))
