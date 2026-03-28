@@ -27,4 +27,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [1, 2, 1]    print(Solution().subsetsWithDup(nums))
+    nums = [1, 2, 1]
+    print(Solution().subsetsWithDup(nums))
