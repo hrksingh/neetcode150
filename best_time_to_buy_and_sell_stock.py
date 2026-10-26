@@ -1,8 +1,5 @@
-from typing import List
-
-
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices: list[int]) -> int:
         # 'l' is the buy day, 'r' is the sell day
         l, r = 0, 1
         maxP = 0  # Use a more standard variable name like maxP or max_profit
